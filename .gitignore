@@ -1,0 +1,28 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environnement local
+.env
+.env.local
+
+# Vite
+dist/
+.cache/
+*.log
+
+# Termux / Android spécifiques
+/storage/
+.DS_Store
+
+# Sauvegardes locales
+*.zip
+*.tar
+*.tar.gz
+psygraph_backup.zip
+
+# VSCode / Editor
+.vscode/
+.idea/

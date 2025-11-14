@@ -10,8 +10,8 @@ const theme = createTheme({
     warning: { main: "#ffcba4" },
     error: { main: "#ff8a8a" },
     background: {
-      default: "#0f172a",
-      paper: "rgba(255,255,255,0.06)",
+      default: "#050505",
+      paper: "rgba(20,26,40,0.9)",
     },
     text: {
       primary: "#ffffff",
@@ -23,11 +23,24 @@ const theme = createTheme({
     fontFamily: "'Inter', 'SF Pro Display', Arial, sans-serif",
   },
   components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          backgroundColor: "#050505",
+          backgroundImage: "none",
+          minHeight: "100vh",
+          color: "#f0f8ff",
+        },
+        "#root": {
+          isolation: "isolate",
+        },
+      },
+    },
     MuiTextField: {
       styleOverrides: {
         root: {
           "& .MuiInputBase-input, & textarea": {
-            color: "#ffffff !important",          // Texte écrit en blanc
+            color: "#ffffff !important", // Texte écrit en blanc
           },
           "& .MuiInputBase-input::placeholder, & textarea::placeholder": {
             color: "rgba(255,255,255,0.5)",

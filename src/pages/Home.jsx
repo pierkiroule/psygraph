@@ -56,15 +56,54 @@ export default function Home() {
 
   return (
     <Box
-      minHeight="100vh"
-      display="flex"
-      flexDirection="column"
-      alignItems="center"
-      justifyContent="center"
-      sx={{ px: 2, textAlign: "center", color: "#fdfdfd", position: "relative" }}
+      component="main"
+      sx={{
+        minHeight: "100vh",
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        textAlign: "center",
+        color: "#fdfdfd",
+        px: 2,
+        py: { xs: 6, md: 8 },
+        position: "relative",
+        overflow: "hidden",
+        backgroundColor: "#050505",
+      }}
     >
+      <Box
+        aria-hidden
+        sx={{
+          position: "absolute",
+          inset: 0,
+          background:
+            "radial-gradient(circle at 20% 25%, rgba(59,130,246,0.25), transparent 45%), radial-gradient(circle at 80% 10%, rgba(248,113,113,0.18), transparent 50%)",
+          opacity: 0.85,
+          zIndex: 0,
+        }}
+      />
+      <Box
+        aria-hidden
+        sx={{
+          position: "absolute",
+          inset: 0,
+          background: "linear-gradient(180deg, rgba(5,5,5,0) 0%, rgba(5,5,5,0.9) 100%)",
+          zIndex: 0,
+        }}
+      />
+
       {/* Contenu central */}
-      <Box sx={{ maxWidth: 600, width: "100%", px: { xs: 2, sm: 4 } }}>
+      <Box
+        sx={{
+          maxWidth: 600,
+          width: "100%",
+          px: { xs: 2, sm: 4 },
+          position: "relative",
+          zIndex: 1,
+        }}
+      >
         <Logo size={isMobile ? 180 : 220} />
 
         {/* Titre et sous-titre */}
@@ -176,7 +215,16 @@ export default function Home() {
       </Box>
 
       {/* Sélecteur langue + copyright en bas */}
-      <Box sx={{ position: "absolute", bottom: 16, textAlign: "center" }}>
+      <Box
+        sx={{
+          position: "absolute",
+          bottom: { xs: 96, sm: 72 },
+          left: "50%",
+          transform: "translateX(-50%)",
+          textAlign: "center",
+          zIndex: 1,
+        }}
+      >
         <ToggleButtonGroup
           value={lang}
           exclusive
@@ -185,8 +233,10 @@ export default function Home() {
             mb: 1,
             "& .MuiToggleButton-root": {
               color: "#e0f7ff",
-              borderColor: "rgba(255,255,255,0.3)",
+              borderColor: "rgba(255,255,255,0.25)",
               px: 2,
+              backdropFilter: "blur(6px)",
+              backgroundColor: "rgba(8,8,8,0.4)",
               "&.Mui-selected": {
                 background: "rgba(255,255,255,0.15)",
                 color: "#fff",

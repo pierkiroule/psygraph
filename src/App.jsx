@@ -1,7 +1,9 @@
 // src/App.jsx
 import { CssBaseline } from "@mui/material";
+import { ThemeProvider } from "@mui/material/styles";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { UserProvider } from "./context/UserContext";
+import theme from "./theme";
 
 import Menu from "./components/Menu";
 import Home from "./pages/Home";
@@ -13,7 +15,7 @@ import MentionsLegales from "./pages/MentionsLegales";
 
 export default function App() {
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <CssBaseline />
       <UserProvider>
         <Router>
@@ -47,6 +49,7 @@ export default function App() {
               position: "fixed",
               bottom: 0,
               width: "100%",
+              zIndex: 10,
             }}
           >
             <Link
@@ -58,6 +61,6 @@ export default function App() {
           </footer>
         </Router>
       </UserProvider>
-    </>
+    </ThemeProvider>
   );
 }

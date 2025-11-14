@@ -20,7 +20,7 @@ html, body, #root {
 
 /* Fond statique */
 body {
-  background: linear-gradient(120deg, #0f182c 0%, #12325c 40%, #3b82f6 85%, #9de3ff 100%);
+  background: #050505;
   background-attachment: fixed;
   position: relative;
   min-height: 100vh;

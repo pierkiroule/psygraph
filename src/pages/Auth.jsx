@@ -11,7 +11,7 @@ import {
   FormControlLabel,
 } from "@mui/material";
 import { Link } from "react-router-dom";
-import { supabase } from "../lib/supabaseClient";
+import { supabase, isSupabaseConfigured } from "../lib/supabaseClient";
 
 export default function Auth() {
   const [isSignup, setIsSignup] = useState(false);
@@ -32,6 +32,11 @@ export default function Auth() {
       return;
     }
 
+    if (!supabase || !isSupabaseConfigured) {
+      setError("La connexion Supabase est désactivée.");
+      return;
+    }
+
     try {
       if (isSignup) {
         const { data, error } = await supabase.auth.signUp({ email, password });
@@ -47,16 +52,61 @@ export default function Auth() {
         }
 
         setMessage(
-          "Inscription réussie ! Vérifiez vos emails pour confirmer votre compte."
+          "Inscription réussie ! Vérifiez vos emails pour confirmer votre compte.",
         );
       } else {
-        const { error } = await supabase.auth.signInWithPassword({ email, password });
+        const { error } = await supabase.auth.signInWithPassword({
+          email,
+          password,
+        });
         if (error) throw error;
         setMessage("Connexion réussie !");
       }
     } catch (e) {
       setError(e.message);
     }
+  }
+
+  if (!isSupabaseConfigured || !supabase) {
+    return (
+      <Box
+        minHeight="100vh"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        sx={{ background: "transparent" }}
+      >
+        <Card
+          sx={{
+            maxWidth: 420,
+            width: "100%",
+            p: { xs: 3, sm: 5 },
+            borderRadius: 4,
+            boxShadow: "0 6px 30px rgba(0,0,0,0.3)",
+            bgcolor: "rgba(255,255,255,0.05)",
+            backdropFilter: "blur(10px)",
+            textAlign: "center",
+          }}
+        >
+          <Typography variant="h5" fontWeight={800} mb={3}>
+            Connexion désactivée
+          </Typography>
+          <Typography color="text.secondary">
+            La connexion Supabase est désactivée sur cet environnement. Aucun
+            compte ne peut être créé ou connecté pour le moment.
+          </Typography>
+          <Button
+            sx={{ mt: 3 }}
+            variant="contained"
+            color="primary"
+            component={Link}
+            to="/"
+          >
+            Retour à l’accueil
+          </Button>
+        </Card>
+      </Box>
+    );
   }
 
   return (
@@ -127,7 +177,8 @@ export default function Auth() {
                   J’accepte les{" "}
                   <Link to="/mentions-legales" style={{ color: "#5aa8ff" }}>
                     conditions d’utilisation et mentions légales
-                  </Link>.
+                  </Link>
+                  .
                 </span>
               }
               sx={{ mt: 1, textAlign: "left" }}

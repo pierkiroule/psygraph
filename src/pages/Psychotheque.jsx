@@ -20,7 +20,7 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import DownloadIcon from "@mui/icons-material/Download";
 import FolderZipIcon from "@mui/icons-material/FolderZip";
-import { supabase } from "../lib/supabaseClient";
+import { supabase, isSupabaseConfigured } from "../lib/supabaseClient";
 import { generateDocx, generatePackDocxZip } from "../lib/docxGenerator";
 
 export default function Psychotheque() {
@@ -30,8 +30,11 @@ export default function Psychotheque() {
   const [topFive, setTopFive] = useState([]);
 
   // Charger depuis la vue SQL (psychotheque_view) pour éviter les calculs côté client
+  const supabaseEnabled = isSupabaseConfigured && !!supabase;
+
   useEffect(() => {
     async function fetchPsychos() {
+      if (!supabaseEnabled) return;
       const { data, error } = await supabase
         .from("psychotheque_view")
         .select("*")
@@ -48,12 +51,13 @@ export default function Psychotheque() {
       }
     }
     fetchPsychos();
-  }, []);
+  }, [supabaseEnabled]);
 
   const openModal = (index) => setCurrentIndex(index);
   const closeModal = () => setCurrentIndex(null);
   const prevImage = () => setCurrentIndex((i) => (i > 0 ? i - 1 : i));
-  const nextImage = () => setCurrentIndex((i) => (i < psychographies.length - 1 ? i + 1 : i));
+  const nextImage = () =>
+    setCurrentIndex((i) => (i < psychographies.length - 1 ? i + 1 : i));
 
   const toggleSelectForPack = (id) => {
     setSelectedForPack((prev) => {
@@ -67,8 +71,11 @@ export default function Psychotheque() {
   };
 
   const handleExportPack = async () => {
-    const packItems = psychographies.filter((p) => selectedForPack.includes(p.id));
-    if (!packItems.length) return alert("Sélectionne au moins une psychographie !");
+    const packItems = psychographies.filter((p) =>
+      selectedForPack.includes(p.id),
+    );
+    if (!packItems.length)
+      return alert("Sélectionne au moins une psychographie !");
     await generatePackDocxZip(packItems);
     setSelectedForPack([]);
   };
@@ -89,6 +96,20 @@ export default function Psychotheque() {
       alert("Impossible de télécharger l'image.");
     }
   };
+
+  if (!supabaseEnabled) {
+    return (
+      <Box sx={{ p: { xs: 2, md: 4 } }}>
+        <Typography variant="h4" fontWeight={700} textAlign="center" mb={2}>
+          Psychothèque indisponible
+        </Typography>
+        <Typography textAlign="center" color="text.secondary">
+          La connexion Supabase est désactivée sur cet environnement. Impossible
+          d’afficher la bibliothèque publique.
+        </Typography>
+      </Box>
+    );
+  }
 
   return (
     <Box sx={{ p: { xs: 2, md: 4 } }}>
@@ -202,7 +223,12 @@ export default function Psychotheque() {
             </IconButton>
             <IconButton
               onClick={nextImage}
-              sx={{ position: "absolute", top: "50%", right: 16, color: "#fff" }}
+              sx={{
+                position: "absolute",
+                top: "50%",
+                right: 16,
+                color: "#fff",
+              }}
             >
               <ArrowForwardIosIcon />
             </IconButton>
@@ -212,7 +238,11 @@ export default function Psychotheque() {
                 <img
                   src={psychographies[currentIndex].image_url}
                   alt={psychographies[currentIndex].titre || ""}
-                  style={{ maxHeight: "80vh", maxWidth: "90vw", marginTop: "4vh" }}
+                  style={{
+                    maxHeight: "80vh",
+                    maxWidth: "90vw",
+                    marginTop: "4vh",
+                  }}
                 />
               )}
               <Stack spacing={1} alignItems="center" mt={2} color="#fff">
@@ -235,7 +265,7 @@ export default function Psychotheque() {
                     onClick={() =>
                       handleDownloadImage(
                         psychographies[currentIndex].image_url,
-                        psychographies[currentIndex].titre
+                        psychographies[currentIndex].titre,
                       )
                     }
                   >
@@ -244,7 +274,9 @@ export default function Psychotheque() {
                   <Button
                     variant="outlined"
                     color="secondary"
-                    onClick={() => handleExportSingle(psychographies[currentIndex])}
+                    onClick={() =>
+                      handleExportSingle(psychographies[currentIndex])
+                    }
                   >
                     Exporter DOCX
                   </Button>

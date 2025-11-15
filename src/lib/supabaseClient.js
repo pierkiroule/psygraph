@@ -3,12 +3,14 @@ import { createClient } from "@supabase/supabase-js";
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || "";
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || "";
 
-// Vérification de la configuration
-if (!supabaseUrl || !supabaseAnonKey) {
-  console.warn("⚠️ Supabase : URL ou clé anonyme manquante. Vérifie ton fichier .env");
+export const isSupabaseConfigured = Boolean(supabaseUrl && supabaseAnonKey);
+
+if (!isSupabaseConfigured) {
+  console.warn(
+    "⚠️ Supabase désactivé : aucune URL ou clé anonyme n'a été trouvée. L'app tourne en mode hors-ligne.",
+  );
 }
 
-// Création du client ou null si config absente
-export const supabase = (supabaseUrl && supabaseAnonKey)
+export const supabase = isSupabaseConfigured
   ? createClient(supabaseUrl, supabaseAnonKey)
   : null;

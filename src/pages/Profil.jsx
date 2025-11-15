@@ -1,20 +1,25 @@
 // src/pages/Profil.jsx
 import { useEffect, useState } from "react";
 import { Box, Card, Typography, TextField, Button, Stack } from "@mui/material";
-import { supabase } from "../lib/supabaseClient";
+import { supabase, isSupabaseConfigured } from "../lib/supabaseClient";
 import { useUser } from "../context/UserContext";
 
 export default function Profil() {
-  const { user, setUser } = useUser();
+  const { user } = useUser();
   const [pseudo, setPseudo] = useState("");
   const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
 
   // Charger le profil
+  const supabaseEnabled = isSupabaseConfigured && !!supabase;
+
   useEffect(() => {
     async function fetchProfile() {
-      if (!user) return;
+      if (!supabaseEnabled || !user) {
+        setLoading(false);
+        return;
+      }
       const { data, error } = await supabase
         .from("profiles")
         .select("pseudo")
@@ -25,7 +30,7 @@ export default function Profil() {
       setLoading(false);
     }
     fetchProfile();
-  }, [user]);
+  }, [user, supabaseEnabled]);
 
   async function handleSave() {
     setMessage("");
@@ -34,6 +39,11 @@ export default function Profil() {
       setError("Le pseudo ne peut pas être vide.");
       return;
     }
+    if (!supabaseEnabled) {
+      setError("La connexion Supabase est désactivée.");
+      return;
+    }
+
     try {
       const { error } = await supabase
         .from("profiles")
@@ -46,10 +56,33 @@ export default function Profil() {
     }
   }
 
+  if (!supabaseEnabled) {
+    return (
+      <Box
+        minHeight="80vh"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+      >
+        <Typography variant="h6" textAlign="center" maxWidth={360}>
+          La gestion du profil est indisponible car Supabase est déconnecté dans
+          cet environnement.
+        </Typography>
+      </Box>
+    );
+  }
+
   if (!user) {
     return (
-      <Box minHeight="80vh" display="flex" alignItems="center" justifyContent="center">
-        <Typography variant="h6">Veuillez vous connecter pour accéder au profil.</Typography>
+      <Box
+        minHeight="80vh"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+      >
+        <Typography variant="h6">
+          Veuillez vous connecter pour accéder au profil.
+        </Typography>
       </Box>
     );
   }

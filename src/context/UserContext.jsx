@@ -1,17 +1,24 @@
 // src/context/UserContext.jsx
 import { createContext, useContext, useEffect, useState } from "react";
-import { supabase } from "../lib/supabaseClient";
+import { supabase, isSupabaseConfigured } from "../lib/supabaseClient";
 
 const UserContext = createContext();
 
 export function UserProvider({ children }) {
   const [user, setUser] = useState(null);
-  const [darkMode, setDarkMode] = useState(
-    () => JSON.parse(localStorage.getItem("darkMode") || "false")
+  const [darkMode, setDarkMode] = useState(() =>
+    JSON.parse(localStorage.getItem("darkMode") || "false"),
   );
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    if (!isSupabaseConfigured || !supabase) {
+      setLoading(false);
+      return;
+    }
+
+    let authSubscription;
+
     async function loadSession() {
       try {
         const { data, error } = await supabase.auth.getSession();
@@ -31,11 +38,13 @@ export function UserProvider({ children }) {
     const { data: listener } = supabase.auth.onAuthStateChange(
       (_event, session) => {
         setUser(session?.user ?? null);
-      }
+      },
     );
 
+    authSubscription = listener?.subscription;
+
     return () => {
-      listener?.subscription?.unsubscribe?.();
+      authSubscription?.unsubscribe?.();
     };
   }, []);
 
@@ -48,7 +57,9 @@ export function UserProvider({ children }) {
   };
 
   return (
-    <UserContext.Provider value={{ user, setUser, darkMode, toggleDarkMode, loading }}>
+    <UserContext.Provider
+      value={{ user, setUser, darkMode, toggleDarkMode, loading }}
+    >
       {children}
     </UserContext.Provider>
   );

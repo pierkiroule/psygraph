@@ -12,6 +12,8 @@ import Profil from "./pages/Profil";
 import Psychographe from "./pages/Psychographe";
 import Psychotheque from "./pages/Psychotheque";
 import MentionsLegales from "./pages/MentionsLegales";
+import Tuto from "./components/Tuto";
+import Theorie from "./components/Theorie";
 
 export default function App() {
   return (
@@ -32,8 +34,10 @@ export default function App() {
               <Route path="/" element={<Home />} />
               <Route path="/auth" element={<Auth />} />
               <Route path="/profil" element={<Profil />} />
-              <Route path="/psychographe" element={<Psychographe />} />
-              <Route path="/psychotheque" element={<Psychotheque />} />
+                <Route path="/psychographe" element={<Psychographe />} />
+                <Route path="/psychotheque" element={<Psychotheque />} />
+                <Route path="/tutoriel" element={<Tuto />} />
+                <Route path="/theorie" element={<Theorie />} />
               <Route path="/mentions-legales" element={<MentionsLegales />} />
             </Routes>
           </div>

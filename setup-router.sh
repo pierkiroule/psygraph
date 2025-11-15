@@ -34,7 +34,7 @@ import { Outlet } from "react-router-dom";
 export default function Layout() {
   return (
     <div style={{ padding: "1rem" }}>
-      <h1 style={{ textAlign: "center", color: "#444" }}>Le Psychographe</h1>
+      <h1 style={{ textAlign: "center", color: "#444" }}>Psychographie</h1>
       <Outlet />
     </div>
   );
@@ -46,7 +46,7 @@ cat << 'EOT' > src/pages/Home.jsx
 export default function Home() {
   return (
     <h2 style={{ textAlign: "center", marginTop: "2rem" }}>
-      Bienvenue sur Le Psychographe
+      Bienvenue dans Psychographie
     </h2>
   );
 }

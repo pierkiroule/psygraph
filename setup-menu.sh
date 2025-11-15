@@ -34,11 +34,11 @@ export default function MenuBurger() {
             padding: "1rem",
             minWidth: "150px"
           }}
-        >
+          >
           <Link to="/" onClick={() => setOpen(false)}>Accueil</Link><br />
           <Link to="/auth" onClick={() => setOpen(false)}>Connexion</Link><br />
           <Link to="/profil" onClick={() => setOpen(false)}>Profil</Link><br />
-          <Link to="/psychographe" onClick={() => setOpen(false)}>Psychographe</Link><br />
+            <Link to="/psychographe" onClick={() => setOpen(false)}>Psychographie</Link><br />
           <Link to="/psychotheque" onClick={() => setOpen(false)}>Psychothèque</Link>
         </div>
       )}

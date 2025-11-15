@@ -8,8 +8,8 @@ export default function Theorie() {
           <Typography variant="h4" color="primary" fontWeight={700} gutterBottom>
             📚 Théorie & Modèle
           </Typography>
-          <Typography color="text.secondary" sx={{ mb: 2 }}>
-            Les principes du Psychographe :
+            <Typography color="text.secondary" sx={{ mb: 2 }}>
+              Les principes de Psychographie :
           </Typography>
           <ul style={{ color: "inherit", fontSize: 17, lineHeight: 1.8 }}>
             <li>

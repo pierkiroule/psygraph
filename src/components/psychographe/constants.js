@@ -62,4 +62,4 @@ export const STEP_LABELS = [
   "Résultat",
 ];
 
-export const STORAGE_KEY = "psychographe:last-session";
+export const STORAGE_KEY = "psychographie:last-session";

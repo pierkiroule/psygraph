@@ -9,8 +9,8 @@ export default function Tuto() {
           <Typography variant="h4" color="primary" fontWeight={700} gutterBottom>
             🧭 Tuto interactif
           </Typography>
-          <Typography color="text.secondary" sx={{ mb: 2 }}>
-            Découvre comment utiliser le Psychographe étape par étape.
+            <Typography color="text.secondary" sx={{ mb: 2 }}>
+              Découvre comment utiliser la Psychographie étape par étape.
           </Typography>
           <ol style={{ color: "inherit", fontSize: 17, lineHeight: 1.8, marginBottom: 16 }}>
             <li>Saisis une idée, une émotion ou une question personnelle.</li>

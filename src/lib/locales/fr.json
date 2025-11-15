@@ -1,5 +1,5 @@
 {
-  "title": "🌌 Psychographe – Création immersive",
+  "title": "🌌 Psychographie – Création immersive",
   "subtitle": "🌀 Saisis un thème et explore un univers poétique et visuel.",
   "themePlaceholder": "Ex : une idée, un souvenir, un rêve...",
   "public": "👥 Pour quel public ?",
@@ -16,9 +16,9 @@
   "checkEmail": "Vérifie tes emails pour confirmer ton inscription !",
   "loginSuccess": "Connexion réussie !",
   "welcome": "Bienvenue",
-  "connected": "Vous êtes connecté au Psychographe.",
+  "connected": "Vous êtes connecté à Psychographie.",
   "logout": "Se déconnecter",
-  "authTitle": "Connexion au Psychographe",
+  "authTitle": "Connexion à Psychographie",
   "email": "Email",
   "password": "Mot de passe",
   "login": "Connexion",

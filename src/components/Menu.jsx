@@ -11,7 +11,7 @@ import { useUser } from "../context/UserContext";
 
 const links = [
   { to: "/", label: "Accueil" },
-  { to: "/psychographe", label: "Psychographe" },
+  { to: "/psychographe", label: "Psychographie" },
   { to: "/psychotheque", label: "Psychothèque" },
   { to: "/profil", label: "Profil", protected: true },
 ];
@@ -39,7 +39,7 @@ export default function Menu() {
           </IconButton>
 
           {/* Logo / titre */}
-          <Box sx={{ flexGrow: 1 }}>
+            <Box sx={{ flexGrow: 1 }}>
             <Link
               to="/"
               style={{
@@ -49,7 +49,7 @@ export default function Menu() {
                 fontSize: 22,
               }}
             >
-              Psychograph
+                Psychographie
             </Link>
           </Box>
 

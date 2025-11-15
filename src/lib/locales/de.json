@@ -1,5 +1,5 @@
 {
-  "title": "🌌 Psychograph – Immersive Erstellung",
+  "title": "🌌 Psychographie – Immersive Erstellung",
   "subtitle": "🌀 Gib ein Thema ein und erkunde ein poetisches und visuelles Universum.",
   "themePlaceholder": "Z.B.: eine Idee, eine Erinnerung, ein Traum...",
   "public": "👥 Für welches Publikum?",
@@ -16,9 +16,9 @@
   "checkEmail": "Überprüfen Sie Ihre E-Mails zur Bestätigung!",
   "loginSuccess": "Erfolgreich eingeloggt!",
   "welcome": "Willkommen",
-  "connected": "Sie sind mit dem Psychograph verbunden.",
+  "connected": "Sie sind mit Psychographie verbunden.",
   "logout": "Abmelden",
-  "authTitle": "Anmeldung am Psychograph",
+  "authTitle": "Anmeldung bei Psychographie",
   "email": "E-Mail",
   "password": "Passwort",
   "login": "Anmelden",

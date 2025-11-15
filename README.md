@@ -1,6 +1,6 @@
-# 🧠 Psychographe
+# 🧠 Psychographie
 
-**Psychographe** est une application React + Node.js permettant de générer des images et textes projectifs à visée thérapeutique, éducative ou créative.
+**Psychographie** est une application React + Node.js permettant de générer des images et textes projectifs à visée thérapeutique, éducative ou créative.
 
 > Conçue initialement pour un usage offline dans Termux (Android), elle est migrable et exécutable sur n'importe quel environnement Node (Linux, PC).
 

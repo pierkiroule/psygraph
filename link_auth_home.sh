@@ -48,7 +48,7 @@ export default function Home() {
   const { user } = useUser();
   return (
     <div style={{ textAlign: "center", marginTop: "2rem" }}>
-      <h1>Bienvenue sur Le Psychographe</h1>
+        <h1>Bienvenue dans Psychographie</h1>
       {user ? (
         <p>Connecté en tant que : <strong>{user.email}</strong></p>
       ) : (

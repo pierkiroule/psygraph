@@ -60,8 +60,8 @@ export default function Result({
         <button className="psy-button" onClick={onRegenerate} disabled={loading}>
           {loading ? "Projection..." : "Regénérer"}
         </button>
-        <button className="psy-button primary" onClick={onReset}>
-          Nouveau Psychographe
+          <button className="psy-button primary" onClick={onReset}>
+            Nouvelle Psychographie
         </button>
       </div>
     </div>

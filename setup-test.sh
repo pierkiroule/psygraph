@@ -6,7 +6,7 @@ cat << 'EOT' > src/pages/Home.jsx
 export default function Home() {
   return (
     <div style={{ textAlign: "center", marginTop: "2rem" }}>
-      <h2>Bienvenue sur Le Psychographe</h2>
+      <h2>Bienvenue dans Psychographie</h2>
       <p>Navigation OK. Teste le menu burger à droite.</p>
     </div>
   );

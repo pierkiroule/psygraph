@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "🔍 Recherche de traces de l'ancienne appli Psychographe..."
+echo "🔍 Recherche de traces de l'ancienne appli Psychographie..."
 
 # 1. Rechercher par nom de dossier ou fichier
 echo "➡ Scan des noms de fichiers/dossiers..."
@@ -8,7 +8,7 @@ find ~ /sdcard -type f -name "*psygraph*" 2>/dev/null
 
 # 2. Rechercher dans le contenu (au cas où le nom a changé)
 echo "➡ Scan du contenu (cela peut prendre du temps)..."
-grep -R "Psychographe" ~ /sdcard 2>/dev/null | head -n 20
+grep -R "Psychographie" ~ /sdcard 2>/dev/null | head -n 20
 
 # 3. Vérifier s’il existe un dépôt Git (qui contiendrait les anciens commits)
 echo "➡ Vérification de la présence d'un dépôt Git..."

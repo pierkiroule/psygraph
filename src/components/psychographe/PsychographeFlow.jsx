@@ -77,12 +77,12 @@ export default function PsychographeFlow() {
     setError("");
   };
 
-  const exportHtml = () => {
+    const exportHtml = () => {
     const imageBlock = data.output.image_url
-      ? `<img src="${data.output.image_url}" alt="Psychographe" style="max-width:100%; border-radius:24px; margin:24px 0;" />`
+        ? `<img src="${data.output.image_url}" alt="Psychographie" style="max-width:100%; border-radius:24px; margin:24px 0;" />`
       : "";
-      const html = `<!doctype html><html lang="fr"><meta charset="utf-8"/><title>Psychographe</title><body style="font-family: 'Space Grotesk', sans-serif; background:#0f182c; color:#f8f9ff; padding:40px;">
-      <h1>Psychographe</h1>
+      const html = `<!doctype html><html lang="fr"><meta charset="utf-8"/><title>Psychographie</title><body style="font-family: 'Space Grotesk', sans-serif; background:#0f182c; color:#f8f9ff; padding:40px;">
+        <h1>Psychographie</h1>
       <p><strong>Mot-clé:</strong> ${data.inputs.keyword || "-"}</p>
       <p><strong>Sensation:</strong> ${data.inputs.sensation || "-"}</p>
       ${imageBlock}
@@ -100,7 +100,7 @@ export default function PsychographeFlow() {
     const url = URL.createObjectURL(blob);
     const linkEl = document.createElement("a");
     linkEl.href = url;
-    linkEl.download = "psychographe.html";
+      linkEl.download = "psychographie.html";
     linkEl.click();
     URL.revokeObjectURL(url);
   };
@@ -121,7 +121,7 @@ export default function PsychographeFlow() {
     ctx.fill();
     ctx.fillStyle = "#f7fbff";
     ctx.font = "32px 'Space Grotesk', sans-serif";
-    ctx.fillText(data.inputs.keyword || "Psychographe", 60, 80);
+      ctx.fillText(data.inputs.keyword || "Psychographie", 60, 80);
     ctx.font = "20px 'Space Grotesk', sans-serif";
     ctx.fillText(data.inputs.sensation || "", 60, 120);
     ctx.font = "18px 'Space Grotesk', sans-serif";
@@ -136,7 +136,7 @@ export default function PsychographeFlow() {
         const url = URL.createObjectURL(blob);
         const linkEl = document.createElement("a");
         linkEl.href = url;
-        linkEl.download = "psychographe.png";
+          linkEl.download = "psychographie.png";
         linkEl.click();
         URL.revokeObjectURL(url);
       });

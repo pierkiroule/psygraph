@@ -19,34 +19,34 @@ export default function Home() {
   const navigate = useNavigate();
   const { user } = useUser();
 
-  const text = {
-    fr: {
-      title: "Le Psychographe : un outil I.A projectif et cocréatif",
-      subtitle: "Au service de votre inconscient ressource",
-      desc: [
-        "✧ Imagine ta psychographie",
-        "✧ Navigue dans un paysage de bulles inspirantes",
-        "✧ Laisse-toi porter par la résonance poétique et visuelle",
-      ],
-      start: "Commencer l’expérience",
-      tuto: "🧭 Tuto interactif",
-      theory: "📚 Théorie & Modèle",
-      footer: "© 2025 Le Psychographe - Tous droits réservés",
-    },
-    en: {
-      title: "The Psychograph: a projective & co-creative A.I. tool",
-      subtitle: "Serving your resourceful unconscious",
-      desc: [
-        "✧ Imagine your psychography",
-        "✧ Wander through a landscape of inspiring bubbles",
-        "✧ Let yourself be carried by poetic and visual resonance",
-      ],
-      start: "Start the Experience",
-      tuto: "🧭 Interactive Tutorial",
-      theory: "📚 Theory & Model",
-      footer: "© 2025 The Psychograph - All rights reserved",
-    },
-  }[lang];
+    const text = {
+      fr: {
+        title: "La Psychographie : un outil I.A projectif et cocréatif",
+        subtitle: "Au service de votre inconscient ressource",
+        desc: [
+          "✧ Imagine ta psychographie",
+          "✧ Navigue dans un paysage de bulles inspirantes",
+          "✧ Laisse-toi porter par la résonance poétique et visuelle",
+        ],
+        start: "Commencer l’expérience",
+        tuto: "🧭 Tuto interactif",
+        theory: "📚 Théorie & Modèle",
+        footer: "© 2025 Psychographie - Tous droits réservés",
+      },
+      en: {
+        title: "Psychographie: a projective & co-creative A.I. tool",
+        subtitle: "Serving your resourceful unconscious",
+        desc: [
+          "✧ Imagine your psychography",
+          "✧ Wander through a landscape of inspiring bubbles",
+          "✧ Let yourself be carried by poetic and visual resonance",
+        ],
+        start: "Start the Experience",
+        tuto: "🧭 Interactive Tutorial",
+        theory: "📚 Theory & Model",
+        footer: "© 2025 Psychographie - All rights reserved",
+      },
+    }[lang];
 
   // Navigation sécurisée (redirige vers auth si non connecté)
   const goTo = (path) => {

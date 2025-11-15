@@ -22,17 +22,17 @@ export default function MentionsLegales() {
         <Divider sx={{ mb: 3 }} />
 
         <Stack spacing={3}>
-          <section>
-            <Typography variant="h6" fontWeight={600}>
-              1. Données personnelles et anonymisation
-            </Typography>
-            <Typography variant="body1" color="text.secondary">
-              Le Psychographe respecte le RGPD. Les utilisateurs doivent veiller à anonymiser les données 
-              qu’ils saisissent (pas de noms réels, adresses ou données sensibles).  
-              Les adresses email collectées ne sont utilisées que pour la connexion et la réinitialisation du mot de passe.  
-              Aucune utilisation commerciale ou publicitaire.
-            </Typography>
-          </section>
+            <section>
+              <Typography variant="h6" fontWeight={600}>
+                1. Données personnelles et anonymisation
+              </Typography>
+              <Typography variant="body1" color="text.secondary">
+                La Psychographie respecte le RGPD. Les utilisateurs doivent veiller à anonymiser les données 
+                qu’ils saisissent (pas de noms réels, adresses ou données sensibles).  
+                Les adresses email collectées ne sont utilisées que pour la connexion et la réinitialisation du mot de passe.  
+                Aucune utilisation commerciale ou publicitaire.
+              </Typography>
+            </section>
 
           <section>
             <Typography variant="h6" fontWeight={600}>
@@ -45,16 +45,16 @@ export default function MentionsLegales() {
             </Typography>
           </section>
 
-          <section>
-            <Typography variant="h6" fontWeight={600}>
-              3. Responsabilité et usage
-            </Typography>
-            <Typography variant="body1" color="text.secondary">
-              L’équipe du Psychographe décline toute responsabilité concernant :  
-              les interprétations des contenus générés, leur diffusion ou toute conséquence découlant de leur utilisation.  
-              En utilisant l’application, l’utilisateur accepte de l’utiliser sous sa propre responsabilité.
-            </Typography>
-          </section>
+            <section>
+              <Typography variant="h6" fontWeight={600}>
+                3. Responsabilité et usage
+              </Typography>
+              <Typography variant="body1" color="text.secondary">
+                L’équipe Psychographie décline toute responsabilité concernant :  
+                les interprétations des contenus générés, leur diffusion ou toute conséquence découlant de leur utilisation.  
+                En utilisant l’application, l’utilisateur accepte de l’utiliser sous sa propre responsabilité.
+              </Typography>
+            </section>
 
           <section>
             <Typography variant="h6" fontWeight={600}>

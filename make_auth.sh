@@ -56,7 +56,7 @@ export default function Auth() {
 
   return (
     <div style={{ textAlign: "center", marginTop: "2rem" }}>
-      <h2>Connexion au Psychographe</h2>
+      <h2>Connexion à Psychographie</h2>
       <input
         type="email"
         placeholder="Email"

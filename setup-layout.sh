@@ -61,11 +61,11 @@ export default function MenuBurger() {
       >
         {open ? "Fermer" : "Menu"}
       </button>
-      {open && (
+        {open && (
         <nav style={{ marginTop: "1rem", background: "#f4f4f4", padding: "1rem" }}>
           <Link to="/" style={{ display: "block", margin: "0.5rem 0" }}>Accueil</Link>
           <Link to="/profil" style={{ display: "block", margin: "0.5rem 0" }}>Profil</Link>
-          <Link to="/psychographe" style={{ display: "block", margin: "0.5rem 0" }}>Psychographe</Link>
+            <Link to="/psychographe" style={{ display: "block", margin: "0.5rem 0" }}>Psychographie</Link>
           <Link to="/psychotheque" style={{ display: "block", margin: "0.5rem 0" }}>Psychothèque</Link>
         </nav>
       )}
@@ -77,10 +77,10 @@ EOT
 # Home.jsx minimal
 mkdir -p src/pages
 cat << 'EOT' > src/pages/Home.jsx
-export default function Home() {
+  export default function Home() {
   return (
     <h2 style={{ textAlign: "center", marginTop: "2rem", color: "#333" }}>
-      Bienvenue sur Le Psychographe
+        Bienvenue sur la Psychographie
     </h2>
   );
 }

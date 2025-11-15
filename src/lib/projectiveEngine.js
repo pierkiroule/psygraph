@@ -27,7 +27,7 @@ function descriptorFor(key, value) {
 }
 
 function svgDataUrl({ keyword, energy, style }) {
-  const title = keyword || "Psychographe";
+  const title = keyword || "Psychographie";
   const accent = style === "minimaliste" ? "#d0f0ff" : style === "surréaliste" ? "#ffd6ff" : "#d8ffdc";
   const base = energy === "tendue" ? "#1f2a4c" : energy === "ouverte" ? "#1c3a44" : "#17233c";
   const svg = `<svg width="720" height="480" viewBox="0 0 720 480" xmlns="http://www.w3.org/2000/svg">
@@ -135,10 +135,10 @@ export async function projectiveEngine({ inputs, sliders, styles, contributions 
     styles,
     contributions: grouped,
   });
-  const guide = buildGuide(sliders, styles);
-  const tags = buildTags({ inputs, styles, contributions: grouped });
-  const image_url = svgDataUrl({
-    keyword: inputs.keyword || "Psychographe",
+    const guide = buildGuide(sliders, styles);
+    const tags = buildTags({ inputs, styles, contributions: grouped });
+    const image_url = svgDataUrl({
+      keyword: inputs.keyword || "Psychographie",
     energy: inputs.energy,
     style: styles.image,
   });

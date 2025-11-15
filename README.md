@@ -24,16 +24,17 @@ npm install
 
 ### Configuration Supabase
 
-L’application embarque désormais une configuration Supabase de repli afin d’éviter l’erreur « Supabase déconnecté » lorsque aucun fichier `.env` n’est présent. Pour brancher votre propre instance :
+- L’application embarque une configuration Supabase de secours (voir `src/lib/supabaseClient.js`). Elle est utilisée automatiquement si aucun `.env` n’est présent, ce qui évite l’erreur « Supabase déconnecté ».
+- Pour brancher votre propre instance :
 
-1. Créez un fichier `.env` (ou `.env.local`) à la racine.
-2. Définissez vos clés :
+  1. Créez un fichier `.env` (ou `.env.local`) à la racine.
+  2. Définissez vos clés :
 
-```bash
-VITE_SUPABASE_URL=https://votre-projet.supabase.co
-VITE_SUPABASE_ANON_KEY=eyJhbGciOi...
-```
+     ```bash
+     VITE_SUPABASE_URL=https://votre-projet.supabase.co
+     VITE_SUPABASE_ANON_KEY=eyJhbGciOi...
+     ```
 
-3. (Optionnel) côté serveur, exportez également `SUPABASE_URL` et `SUPABASE_ANON_KEY` si vous utilisez les routes Node.
+  3. (Optionnel) côté serveur, exportez également `SUPABASE_URL` et `SUPABASE_ANON_KEY` si vous utilisez les routes Node.
 
-> Besoin de désactiver Supabase ? Définissez `VITE_SUPABASE_DISABLED=true` (et/ou `SUPABASE_DISABLED=true` côté serveur). L’application repassera en mode hors-ligne.
+- Pour désactiver complètement Supabase (mode hors-ligne), définissez `VITE_SUPABASE_DISABLED=true` (et/ou `SUPABASE_DISABLED=true` côté serveur). L’interface affichera alors les écrans « Supabase désactivé ».
